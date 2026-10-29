@@ -1,6 +1,6 @@
 ## Kim Julongbayan
 
-Full-stack developer. TypeScript, Postgres and LLMs, in production systems that people use every workday.
+Full-stack developer in Quezon City, Philippines. TypeScript, Postgres and LLMs, in production systems that people use every workday.
 
 [kimlj.dev](https://kimlj.dev) · [Hub](https://kimlj.dev/hub)
 
