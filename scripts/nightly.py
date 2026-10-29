@@ -58,9 +58,12 @@ def main() -> int:
             log(f"no change ({cmd})")
             return 0
         run("git", "commit", "-q", "-m", f"Update usage card {dt.date.today()}")
-        if not args.no_push:
+        has_remote = bool(run("git", "remote").stdout.strip())
+        pushed = not args.no_push and has_remote
+        if pushed:
             run("git", "push", "-q")
-        log(f"updated{' (not pushed)' if args.no_push else ' and pushed'} ({cmd})")
+        why = "" if pushed else (" (no remote yet)" if not has_remote else " (not pushed)")
+        log(f"updated{' and pushed' if pushed else why} ({cmd})")
         return 0
     except Exception:
         log("FAILED\n" + traceback.format_exc())

@@ -130,7 +130,8 @@ def write_cards(data: dict) -> None:
     for name, theme in THEMES.items():
         path = assets / f"usage-{name}.svg"
         path.write_text(card(data, theme), encoding="utf-8")
-        print(f"wrote {path}")
+        if sys.stdout:  # None under pythonw
+            print(f"wrote {path}")
 
 
 def main():
